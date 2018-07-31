@@ -2,6 +2,7 @@ package com.be.mypals;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -21,8 +22,12 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
             "Gypsy",
             "Woofiey"
     };
+
+    Connection conn;
+    String un,pwd,db,ip;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -81,6 +89,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //declaring db details
+        ip = "localhost:81/";
+        db = "pals_test";
+        un = "root";
+        pwd = "";
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -150,6 +164,29 @@ public class MainActivity extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.action_search);
         searchView.setMenuItem(item);
         return true;
+    }
+
+
+
+    public Connection connectionclass(String user, String pwd, String db, String server){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        Connection connection = null;
+        String connectionURL = null;
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            connectionURL = "dbc:mysql://"+server+db+";user="+user+";password="+pwd+";";
+            connection = DriverManager.getConnection(connectionURL);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException se) {
+            se.printStackTrace();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return connection;
     }
 
 }
