@@ -1,5 +1,6 @@
 package com.be.mypals;
 
+import android.accounts.Account;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -52,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
             "Woofiey"
     };
 
-    Connection conn;
-    String un,pwd,db,ip;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -61,26 +60,33 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment selectedFragment = null;
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     selectedFragment = HomeFragment.newInstance();
+                    transaction.replace(R.id.frame_layout, selectedFragment);
+                    System.out.println("Selectedfragment : " + selectedFragment);
+                    transaction.commit();
                     System.out.println("home");
                     getSupportActionBar().setTitle(R.string.app_name);
                     return true;
                 case R.id.navigation_event:
                     selectedFragment = EventsFragment.newInstance();
+                    transaction.replace(R.id.frame_layout, selectedFragment);
+                    System.out.println("Selectedfragment : " + selectedFragment);
+                    transaction.commit();
                     System.out.println("event");
                     getSupportActionBar().setTitle(R.string.title_events);
                     return true;
                 case R.id.navigation_account:
                     selectedFragment = AccountFragment.newInstance();
+                    transaction.replace(R.id.frame_layout, selectedFragment);
+                    System.out.println("Selectedfragment : " + selectedFragment);
+                    transaction.commit();
                     System.out.println("account");
                     getSupportActionBar().setTitle(R.string.title_account);
                     return true;
             }
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.frame_layout, selectedFragment);
-            transaction.commit();
             return true;
         }
     };
@@ -90,11 +96,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //declaring db details
-        ip = "localhost:81/";
-        db = "pals_test";
-        un = "root";
-        pwd = "";
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

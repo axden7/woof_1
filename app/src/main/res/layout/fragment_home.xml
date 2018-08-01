@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.be.mypals.Fragments.HomeFragment">
 
 
@@ -12,8 +13,8 @@
         android:layout_height="200dp"
         app:fillColor="#FFFFFFFF"
         app:pageColor="#00000000"
-        app:radius="6dp"
-        app:slideInterval="3000"
+        app:radius="4dp"
+        app:slideInterval="5000"
         app:strokeColor="#FF777777"
         app:strokeWidth="1dp"
         android:layout_marginTop="55dp"/>
@@ -22,17 +23,17 @@
         android:id="@+id/browsePets"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/carouselView"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto_condensed_regular"
         android:text="Browse Pets"
         android:textColor="@color/black"
-        android:textSize="24dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@+id/carouselView"
-        android:fontFamily="sans-serif"
-        />
+        android:textSize="24dp" />
 
     <GridView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/grid_view"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/browsePets"
@@ -41,6 +42,7 @@
         android:verticalSpacing="10dp"
         android:scrollbars="vertical"
         android:gravity="center"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:stretchMode="columnWidth" >
     </GridView>
 

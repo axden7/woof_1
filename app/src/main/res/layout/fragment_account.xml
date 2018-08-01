@@ -1,14 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/blue_purple_gradient"
     tools:context=".Fragments.AccountFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:paddingTop="36dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
 
-</FrameLayout>
+        <ImageView android:src="@drawable/mypals_logo_white"
+            android:layout_width="wrap_content"
+            android:layout_height="140dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal" />
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/galada"
+            android:gravity="center"
+            android:text="My Pals"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <!-- Email Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:theme="@style/TextLabel"
+            android:background="@drawable/white_rounded_rectangle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:src="@drawable/ic_person_white_24dp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/input_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:fontFamily="@font/roboto"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="18dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textColorLink="@color/white"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Password Label -->
+        <android.support.design.widget.TextInputLayout
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:theme="@style/TextLabel"
+            android:background="@drawable/white_rounded_rectangle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:src="@drawable/ic_lock_outline_white_24dp"
+                    android:textAlignment="center" />
+
+                <EditText
+                    android:id="@+id/input_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:fontFamily="@font/roboto"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="18dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textColorLink="@color/white"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/salmon_rounded_rectangle"
+            android:fontFamily="@font/roboto"
+            android:padding="12dp"
+            android:text="Login"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/link_signup"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="No account yet? Create one"
+            android:textColor="@color/white"
+            android:textSize="16dip" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            />
+
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

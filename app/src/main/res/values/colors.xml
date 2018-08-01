@@ -3,6 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="salmonOrange">#f25c4e</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="logo_blue">#0070c0</color>
+    <color name="logo_purple">#7030a0</color>
+    <color name="logo_bluepurple">#4e43aa</color>
 </resources>

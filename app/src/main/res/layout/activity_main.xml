@@ -12,6 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
+        android:fontFamily="@font/galada"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 
     <com.miguelcatalan.materialsearchview.MaterialSearchView
@@ -32,8 +34,6 @@
         android:layout_above="@+id/navigation"
         android:animateLayoutChanges="true">
 
-    </FrameLayout>
-
     <ListView
         android:id="@+id/listView"
         android:layout_width="fill_parent"
@@ -42,6 +42,8 @@
         android:divider="#806326"
         android:dividerHeight="1dp"
         android:layout_marginTop="55dp"/>
+
+    </FrameLayout>
 
 
     <android.support.design.widget.BottomNavigationView
